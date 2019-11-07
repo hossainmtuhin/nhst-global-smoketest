@@ -1,0 +1,19 @@
+{
+  "name": "exit",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "entry point",
+  "scripts": {
+    "test": "testcommand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hossainmtuhin/testautomation-smoketest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hossainmtuhin/testautomation-smoketest/issues"
+  },
+  "homepage": "https://github.com/hossainmtuhin/testautomation-smoketest#readme"
+}
