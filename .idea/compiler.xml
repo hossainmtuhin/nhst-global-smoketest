@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="global-smoketest" />
+        <module name="smoketest" />
+        <module name="nhst-testautomation-smoketest" />
       </profile>
     </annotationProcessing>
   </component>
