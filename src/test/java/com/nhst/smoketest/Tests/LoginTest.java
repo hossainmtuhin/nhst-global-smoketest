@@ -41,13 +41,13 @@ public class LoginTest {
 
     @BeforeTest
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-//        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
 //        WebDriverManager.iedriver().setup();
 //        WebDriverManager.edgedriver().setup();
 
-        driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
+//        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
 //        driver = new InternetExplorerDriver();
 //        driver = new EdgeDriver();
 
