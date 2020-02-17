@@ -264,7 +264,7 @@ public class LoginTest {
     public void testIFNOHomePageTitleCheck() {
 
 //        Assert.assertEquals(driver.getTitle(), URLTextUtils.IFNO_HomePage.HOME_PAGE_TITLE, "Home page Meta title didn't match - page mismatch");
-        Assert.assertEquals(URLTextUtils.IFNO_HomePage.HOME_PAGE_TITLE, "Intrafish.no | De siste nyhetene om oppdrettsnæringen.");
+        Assert.assertEquals(driver.getTitle(), "Intrafish.no | De siste nyhetene om oppdrettsnæringen.");
         // Intrafish.no | De siste nyhetene om oppdrettsnæringen.
         System.out.println("IFNO Homepage Title has been matched. IFNO site has been loaded.");
     }
