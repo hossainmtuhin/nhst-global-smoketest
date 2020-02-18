@@ -42,6 +42,7 @@ public class LoginTest {
     @BeforeTest
     public void setUp() {
         WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromiumdriver().setup();
 //        WebDriverManager.firefoxdriver().setup();
 //        WebDriverManager.iedriver().setup();
 //        WebDriverManager.edgedriver().setup();
