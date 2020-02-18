@@ -58,7 +58,7 @@ public class LoginTest {
         wait = new WebDriverWait(driver, 20);
     }
 
-    @Test(priority = 1)
+//    @Test(priority = 1)
     public void testTWLoginLogout() {
         // Get the base URL of TW site
         driver.get(URLTextUtils.TW_HomePage.BASE_URL);
@@ -75,7 +75,7 @@ public class LoginTest {
         */
     }
 
-    @Test(priority = 2)
+//    @Test(priority = 2)
     public void testUPSLoginLogout() {
 //        openNewBlankTab(1);
         // Get the homepage URL of Upstream
@@ -89,7 +89,7 @@ public class LoginTest {
         testUPSHomePageTitleCheck();
     }
 
-    @Test(priority = 3)
+    // @Test(priority = 3)
     public void testRELoginLogout() {
         // Get the homepage URL of Recharge
         driver.get(URLTextUtils.RE_HomePage.BASE_URL);
@@ -103,7 +103,7 @@ public class LoginTest {
         testREHomePageTitleCheck();
     }
 
-    @Test(priority = 4)
+//    @Test(priority = 4)
     public void testIFCOMLoginLogout() {
         // Get the homepage URL of Recharge
         driver.get(URLTextUtils.IFCOM_HomePage.BASE_URL);
@@ -131,7 +131,7 @@ public class LoginTest {
         testIFNOHomePageTitleCheck();
     }
 
-    @Test(priority = 6)
+//    @Test(priority = 6)
     public void testEPELoginLogout() {
 //        openNewBlankTab(3);
         testEPEHomePageTitleCheck();
@@ -263,11 +263,7 @@ public class LoginTest {
     /* ---------------------------------------- IFNO Login Logout -------------------------------------------------------*/
 
     public void testIFNOHomePageTitleCheck() {
-
-        Assert.assertEquals(driver.getTitle(), URLTextUtils.IFNO_HomePage.HOME_PAGE_TITLE, "Home page Meta title didn't match - page mismatch");
-//        Assert.assertEquals(driver.getTitle(), "Intrafish.no | De siste nyhetene om oppdrettsnæringen.", "Home page Meta title didn't match - page mismatch");
-        System.out.println(driver.getTitle());
-        // Intrafish.no | De siste nyhetene om oppdrettsnæringen.
+        Assert.assertEquals(driver.getTitle(), "Intrafish.no | De siste nyhetene om oppdrettsn\u00E6ringen.", "Home page Meta title didn't match - page mismatch");
         System.out.println("IFNO Homepage Title has been matched. IFNO site has been loaded.");
     }
 

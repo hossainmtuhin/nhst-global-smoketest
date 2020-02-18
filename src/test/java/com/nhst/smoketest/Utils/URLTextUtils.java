@@ -1,5 +1,7 @@
 package com.nhst.smoketest.Utils;
 
+import java.text.Normalizer;
+
 public class URLTextUtils {
 
     public class TW_HomePage {
@@ -42,6 +44,10 @@ public class URLTextUtils {
         public static final String HOME_PAGE_TITLE = "Europower Energi | Siste nyheter fra fornybarbransjen";
         public static final String LOGIN_PAGE = "https://www.upstreamonline.com/login";
         public static final String LOGIN_PAGE_TITLE = "Login Page | Upstream Online";
+    }
+
+    public static String deAccent(String str) {
+        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 
 }
