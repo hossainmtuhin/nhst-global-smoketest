@@ -19,8 +19,8 @@ public class SetupTest {
     public void setUp() throws Exception {
         driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), DesiredCapabilities.chrome());
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        driver.manage().window().maximize();
+//        options.addArguments("headless");
+//        driver.manage().window().maximize();
     }
 
     @Test
