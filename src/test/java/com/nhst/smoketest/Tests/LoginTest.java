@@ -50,7 +50,7 @@ public class LoginTest {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        options.addArguments("start-maximized"); // instead of using driver.manage().window().maximize();
+        options.addArguments("start-maximized"); // open Browser in maximized mode - instead of using driver.manage().window().maximize();
         options.addArguments("enable-automation");
 
         dc.setCapability(ChromeOptions.CAPABILITY, options);
@@ -122,7 +122,7 @@ public class LoginTest {
         testIFCOMHomePageTitleCheck();
     }
 
-//    @Test(priority = 5)
+    @Test(priority = 5)
     public void testIFNOLoginLogout() {
         driver.get(URLTextUtils.IFNO_HomePage.BASE_URL);
         testIFNOHomePageTitleCheck();
