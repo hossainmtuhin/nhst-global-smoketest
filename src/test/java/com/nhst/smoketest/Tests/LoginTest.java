@@ -12,6 +12,7 @@ package com.nhst.smoketest.Tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -45,21 +46,31 @@ public class LoginTest {
     @BeforeTest
     public void setUp() throws Exception {
 
-//        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), DesiredCapabilities.chrome());
-//        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), DesiredCapabilities.chrome());
+        final DesiredCapabilities dc = DesiredCapabilities.chrome();
 
-        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("start-maximized"); // instead of using driver.manage().window().maximize();
+        options.addArguments("enable-automation");
+
+        dc.setCapability(ChromeOptions.CAPABILITY, options);
+
+
+//        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), DesiredCapabilities.chrome());
+        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), dc);
+
+//        WebDriverManager.chromedriver().setup();
 //        WebDriverManager.chromiumdriver().setup();
 //        WebDriverManager.firefoxdriver().setup();
 //        WebDriverManager.iedriver().setup();
 //        WebDriverManager.edgedriver().setup();
 
-        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
 //        driver = new FirefoxDriver();
 //        driver = new InternetExplorerDriver();
 //        driver = new EdgeDriver();
 
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
 
         // Initialize WAIT - timeout in xx seconds
         wait = new WebDriverWait(driver, 60);
