@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/hossainmtuhin/testautomation-smoketest/issues"
   },
-  "homepage": "https://github.com/hossainmtuhin/testautomation-smoketest#readme"
+  "homepage": "https://github.com/hossainmtuhin/testautomation-smoketest#readme",
+  "dependencies": {
+    "maven": "^4.7.0"
+  }
 }
