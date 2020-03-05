@@ -46,18 +46,17 @@ public class LoginTest {
     @BeforeTest
     public void setUp() throws Exception {
 
-        final DesiredCapabilities dc = DesiredCapabilities.chrome();
-
+//        final DesiredCapabilities dc = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("start-maximized"); // open Browser in maximized mode - instead of using driver.manage().window().maximize();
         options.addArguments("enable-automation");
 
-        dc.setCapability(ChromeOptions.CAPABILITY, options);
+        options.setCapability(ChromeOptions.CAPABILITY, options);
 
 
-        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), options);
-//        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), dc);
+//        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), options);
+        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), options);
 
 //        WebDriverManager.chromedriver().setup();
 //        WebDriverManager.chromiumdriver().setup();
