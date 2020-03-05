@@ -56,7 +56,7 @@ public class LoginTest {
         dc.setCapability(ChromeOptions.CAPABILITY, options);
 
 
-        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), dc);
+        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), options);
 //        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), dc);
 
 //        WebDriverManager.chromedriver().setup();
