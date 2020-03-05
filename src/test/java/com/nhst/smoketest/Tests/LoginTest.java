@@ -56,8 +56,8 @@ public class LoginTest {
         dc.setCapability(ChromeOptions.CAPABILITY, options);
 
 
-//        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), DesiredCapabilities.chrome());
-        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), dc);
+        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), DesiredCapabilities.chrome());
+//        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), dc);
 
 //        WebDriverManager.chromedriver().setup();
 //        WebDriverManager.chromiumdriver().setup();
@@ -73,7 +73,7 @@ public class LoginTest {
 //        driver.manage().window().maximize();
 
         // Initialize WAIT - timeout in xx seconds
-        wait = new WebDriverWait(driver, 60);
+        wait = new WebDriverWait(driver, 50);
     }
 
     @Test(priority = 1)
@@ -159,7 +159,7 @@ public class LoginTest {
     public void testTWLoginFromHomePage() {
         try {
             // To wait unit the element(button) became clickable - timeout in 10 seconds.
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(loginMenuButton)));
+//            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(loginMenuButton)));
             driver.findElement(By.xpath(XPathUtils.Login.LOGIN_MENU)).click();
             driver.findElement(By.id("username")).sendKeys("testuser_standard@dispostable.com");
             driver.findElement(By.id("password")).sendKeys("testuser");
@@ -198,13 +198,14 @@ public class LoginTest {
     public void testUPSLoginFromHomePage() {
         try {
             // To wait unit the element(button) became clickable - timeout in 10 seconds.
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(loginMenuButton)));
+//            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(loginMenuButton)));
             // click on the LOGIN MENU button  when it's clickable
             driver.findElement(By.xpath(loginMenuButton)).click();
+            System.out.println("login button click action performed");
             driver.findElement(By.id("username")).sendKeys("testuser_up@dispostable.com");
             driver.findElement(By.id("password")).sendKeys("testuser");
             driver.findElement(By.id("login_button")).click();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             testPageElementsCheckAfterSuccessfulLoginEN("Home page", "UPS");
         } catch (ElementClickInterceptedException e) {
             System.out.println("login menu wasn't clickable - login test from homepage has failed");
@@ -225,7 +226,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("testuser_reon");
         driver.findElement(By.id("password")).sendKeys("testuser");
         driver.findElement(By.id("login_button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         testPageElementsCheckAfterSuccessfulLoginEN("Home page", "RE");
     }
 
@@ -242,7 +243,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("testuser_ifco");
         driver.findElement(By.id("password")).sendKeys("testuser");
         driver.findElement(By.id("login_button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         testPageElementsCheckAfterSuccessfulLoginEN("Home page", "IFCOM");
     }
 
@@ -276,7 +277,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("testuser");
         driver.findElement(By.id("password")).sendKeys("testuser");
         driver.findElement(By.id("login_button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         testPageElementsCheckAfterSuccessfulLoginNO("Home page", "EPE");
     }
 
@@ -291,14 +292,14 @@ public class LoginTest {
      * use base64 decoder to collect cpid to validate
      */
     public void testPageElementsCheckAfterSuccessfulLoginEN(String Location, String Publication) {
-        boolean subLinkText = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText("Subscribe")));
+//        boolean subLinkText = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText("Subscribe")));
         Assert.assertTrue(driver.findElements(By.linkText("Subscribe")).size() < 1);
         System.out.println("Login is successful from the " + Location + " for " + Publication);
     }
 
     // Verify that the 'Abonner' link text for Norwegian sites is not visible on the top nav-bar after successful login.
     public void testPageElementsCheckAfterSuccessfulLoginNO(String Location, String Publication) {
-        boolean subLinkText = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText("Abonner")));
+//        boolean subLinkText = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText("Abonner")));
         Assert.assertTrue(driver.findElements(By.linkText("Abonner")).size() < 1);
         System.out.println("Login is successful from the " + Location + " for " + Publication);
     }
@@ -318,7 +319,7 @@ public class LoginTest {
             driver.findElement(By.xpath("//div//div[2]/ul/li[1]/div/button")).click();
             // Click on the logout link text
             driver.findElement(By.xpath("//div[1]//nav/div[2]/ul/li[1]//div/a[1]")).click();
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             System.out.println("User is logged out successfully");
         }
     }
@@ -336,7 +337,7 @@ public class LoginTest {
             driver.findElement(By.xpath("//div//div[2]/ul/li[1]/div/button")).click();
             // To click on the logout link text
             driver.findElement(By.xpath("//div[1]//nav/div[2]/ul/li[1]//div/a[1]")).click();
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             System.out.println("User is logged out successfully");
         }
     }
@@ -356,7 +357,7 @@ public class LoginTest {
     execute $('.wisepops-close').trigger('click'); on browser console to see the result
      */
     public void clickCancelWisepopPopup() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if (driver.findElements(By.xpath("//div[contains(@class, 'wisepops-popup')]")).size() > 0 == true)
         {
             System.out.println("Wisepop Popup IS present");
@@ -365,7 +366,7 @@ public class LoginTest {
         } else {
             System.out.println("Wisepop Popup is not present");
         }
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     /* ------------------------------------- WILL BE ABANDONED --------------------------------------------------------*/
