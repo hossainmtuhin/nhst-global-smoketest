@@ -58,9 +58,9 @@ public class LoginTest {
         testTWHomePageTitleCheck();
         clickCancelWisepopPopup();
         testTWLoginFromHomePage();
-//        testSuccessfulLogoutENSite();
+        testSuccessfulLogoutENSite();
     // To check if user is successfully logged out and navigated back to the home page
-//        testTWHomePageTitleCheck();
+        testTWHomePageTitleCheck();
 //        testTWLoginFromLoginPage();
         /*
            TODO
@@ -74,8 +74,8 @@ public class LoginTest {
         testUPSHomePageTitleCheck();
 //        clickCancelWisepopPopup();
         testUPSLoginFromHomePage();
-//        testSuccessfulLogoutENSite();
-//        testUPSHomePageTitleCheck();
+        testSuccessfulLogoutENSite();
+        testUPSHomePageTitleCheck();
     }
 
 //     @Test(priority = 3)
