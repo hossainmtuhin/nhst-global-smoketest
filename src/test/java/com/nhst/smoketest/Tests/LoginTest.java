@@ -56,8 +56,8 @@ public class LoginTest {
     public void testTWLoginLogout() {
         driver.get(URLTextUtils.TW_HomePage.BASE_URL);
         testTWHomePageTitleCheck();
-//        clickCancelWisepopPopup();
-//        testTWLoginFromHomePage();
+        clickCancelWisepopPopup();
+        testTWLoginFromHomePage();
 //        testSuccessfulLogoutENSite();
     // To check if user is successfully logged out and navigated back to the home page
 //        testTWHomePageTitleCheck();
@@ -68,14 +68,14 @@ public class LoginTest {
         */
     }
 
-//    @Test(priority = 2)
+    @Test(priority = 2)
     public void testUPSLoginLogout() {
         driver.get(URLTextUtils.UP_HomePage.BASE_URL);
         testUPSHomePageTitleCheck();
 //        clickCancelWisepopPopup();
         testUPSLoginFromHomePage();
-        testSuccessfulLogoutENSite();
-        testUPSHomePageTitleCheck();
+//        testSuccessfulLogoutENSite();
+//        testUPSHomePageTitleCheck();
     }
 
 //     @Test(priority = 3)
