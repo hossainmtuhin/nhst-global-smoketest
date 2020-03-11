@@ -56,19 +56,19 @@ public class LoginTest {
     public void testTWLoginLogout() {
         driver.get(URLTextUtils.TW_HomePage.BASE_URL);
         testTWHomePageTitleCheck();
-        clickCancelWisepopPopup();
-        testTWLoginFromHomePage();
-        testSuccessfulLogoutENSite();
+//        clickCancelWisepopPopup();
+//        testTWLoginFromHomePage();
+//        testSuccessfulLogoutENSite();
     // To check if user is successfully logged out and navigated back to the home page
-        testTWHomePageTitleCheck();
+//        testTWHomePageTitleCheck();
 //        testTWLoginFromLoginPage();
         /*
            TODO
-           Check whether the Paywall is present or not after successful login for all the publications
+           Check whether the 'Paywall' is present or not after successful login for all the publications
         */
     }
 
-    @Test(priority = 2)
+//    @Test(priority = 2)
     public void testUPSLoginLogout() {
         driver.get(URLTextUtils.UP_HomePage.BASE_URL);
         testUPSHomePageTitleCheck();
@@ -78,7 +78,7 @@ public class LoginTest {
         testUPSHomePageTitleCheck();
     }
 
-     @Test(priority = 3)
+//     @Test(priority = 3)
     public void testRELoginLogout() {
         driver.get(URLTextUtils.RE_HomePage.BASE_URL);
         testREHomePageTitleCheck();
@@ -88,7 +88,7 @@ public class LoginTest {
         testREHomePageTitleCheck();
     }
 
-    @Test(priority = 4)
+//    @Test(priority = 4)
     public void testIFCOMLoginLogout() {
         driver.get(URLTextUtils.IFCOM_HomePage.BASE_URL);
         testIFCOMHomePageTitleCheck();
@@ -98,7 +98,7 @@ public class LoginTest {
         testIFCOMHomePageTitleCheck();
     }
 
-    @Test(priority = 5)
+//    @Test(priority = 5)
     public void testIFNOLoginLogout() {
         driver.get(URLTextUtils.IFNO_HomePage.BASE_URL);
         testIFNOHomePageTitleCheck();
@@ -108,7 +108,7 @@ public class LoginTest {
         testIFNOHomePageTitleCheck();
     }
 
-    @Test(priority = 6)
+//    @Test(priority = 6)
     public void testEPELoginLogout() {
         driver.get(URLTextUtils.EPE_HomePage.BASE_URL);
         testEPEHomePageTitleCheck();
