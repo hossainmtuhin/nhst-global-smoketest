@@ -9,16 +9,9 @@
 
 package com.nhst.smoketest.Tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -45,8 +38,6 @@ public class LoginTest {
 
     @BeforeTest
     public void setUp() throws Exception {
-
-//        final DesiredCapabilities dc = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("start-maximized"); // open Browser in maximized mode - instead of using driver.manage().window().maximize();
@@ -54,24 +45,10 @@ public class LoginTest {
 
         options.setCapability(ChromeOptions.CAPABILITY, options);
 
+//        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), options);
+        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), options);
 
-        driver = new RemoteWebDriver(new URL("http://nhst-test-automation.test.nhst.cloud/wd/hub"), options);
-//        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), options);
-
-//        WebDriverManager.chromedriver().setup();
-//        WebDriverManager.chromiumdriver().setup();
-//        WebDriverManager.firefoxdriver().setup();
-//        WebDriverManager.iedriver().setup();
-//        WebDriverManager.edgedriver().setup();
-
-//        driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
-//        driver = new InternetExplorerDriver();
-//        driver = new EdgeDriver();
-
-//        driver.manage().window().maximize();
-
-        // Initialize WAIT - timeout in xx seconds
+    // Initialize WAIT - timeout in seconds
         wait = new WebDriverWait(driver, 50);
     }
 
@@ -164,9 +141,9 @@ public class LoginTest {
             driver.findElement(By.id("password")).sendKeys("testuser");
             driver.findElement(By.id("login_button")).click();
             System.out.println("login button click action performed");
-            // Implicit wait - timeout in 10 seconds
+        // Implicit wait - timeout in 10 seconds
 //            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            // To verify that the login was successful for valid credentials
+        // To verify that the login was successful for valid credentials
             testPageElementsCheckAfterSuccessfulLoginEN("Home page", "TW");
         } catch (ElementClickInterceptedException exception) {
             System.out.println("For Tradewinds, login test from homepage has failed due to wisepop issues. Do this manually as of now");
@@ -189,16 +166,16 @@ public class LoginTest {
     /* ---------------------------------------- UPS Login Logout -------------------------------------------------------*/
 
     public void testUPSHomePageTitleCheck() {
-        // Compare the actual and expected page titles.
+    // Compare the actual and expected page titles.
         Assert.assertEquals(driver.getTitle(), URLTextUtils.UP_HomePage.HOME_PAGE_TITLE, "Home page Meta title didn't match - page mismatch");
         System.out.println("UPS Homepage Title has been matched. UPS site has been loaded.");
     }
 
     public void testUPSLoginFromHomePage() {
         try {
-            // To wait unit the element(button) became clickable - timeout in 10 seconds.
+        // To wait unit the element(button) became clickable - timeout in 10 seconds.
 //            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(loginMenuButton)));
-            // click on the LOGIN MENU button  when it's clickable
+        // click on the LOGIN MENU button  when it's clickable
             driver.findElement(By.xpath(loginMenuButton)).click();
             System.out.println("login button click action performed");
             driver.findElement(By.id("username")).sendKeys("testuser_up@dispostable.com");
@@ -220,7 +197,7 @@ public class LoginTest {
     }
 
     public void testRELoginFromHomePage() {
-        // click on the LOGIN MENU button  when it's clickable
+    // click on the LOGIN MENU button  when it's clickable
         driver.findElement(By.xpath(loginMenuButton)).click();
         driver.findElement(By.id("username")).sendKeys("testuser_reon");
         driver.findElement(By.id("password")).sendKeys("testuser");
@@ -237,7 +214,7 @@ public class LoginTest {
     }
 
     public void testIFCOMLoginFromHomePage() {
-        // click on the LOGIN MENU button  when it's clickable
+    // click on the LOGIN MENU button  when it's clickable
         driver.findElement(By.xpath(loginMenuButton)).click();
         driver.findElement(By.id("username")).sendKeys("testuser_ifco");
         driver.findElement(By.id("password")).sendKeys("testuser");
@@ -254,7 +231,7 @@ public class LoginTest {
     }
 
     public void testIFNOLoginFromHomePage() {
-        // click on the LOGIN MENU button  when it's clickable
+    // click on the LOGIN MENU button  when it's clickable
         driver.findElement(By.xpath(loginMenuButton)).click();
         driver.findElement(By.id("username")).sendKeys("testuser_ifno");
         driver.findElement(By.id("password")).sendKeys("testuser");
@@ -271,7 +248,7 @@ public class LoginTest {
     }
 
     public void testEPELoginFromHomePage() {
-        // click on the LOGIN MENU button  when it's clickable
+    // click on the LOGIN MENU button  when it's clickable
         driver.findElement(By.xpath(loginMenuButton)).click();
         driver.findElement(By.id("username")).sendKeys("testuser");
         driver.findElement(By.id("password")).sendKeys("testuser");
@@ -343,7 +320,6 @@ public class LoginTest {
 
     /* ------------------------- Open new tabs and test each publications on separate tabs ----------------------------*/
 
-    /* open a new blank tab */
     public void openNewBlankTab(int NumberOfTab) {
         driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
