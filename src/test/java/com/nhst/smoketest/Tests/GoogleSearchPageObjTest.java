@@ -25,7 +25,6 @@ public class GoogleSearchPageObjTest {
 
     private WebDriver driver = null;
 //    private WebDriverWait wait = null;
-//    public String loginMenuButton = XPathUtils.Login.LOGIN_MENU;
 
     // create object for the page class by calling constructor method
     GoogleSearchPageObjects googleSearchPageObjects = new GoogleSearchPageObjects(driver);
